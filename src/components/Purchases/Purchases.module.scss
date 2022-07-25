@@ -1,0 +1,35 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left, .right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        img {
+            cursor: pointer;
+        }
+    }
+    .right {
+        border: 1px solid #F3F3F3;
+        border-radius: 10px;
+        padding: 10px 20px;
+    }
+    .totalSum {
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+
+
+.bottom {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    margin-top: 40px;
+}
+
+.emojy {
+    font-size: 35px;
+}

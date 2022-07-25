@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #E7F6FF;
+  padding: 85px 0;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+}
+
+.container {
+  padding: 40px 50px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.priceText {
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #BDBDBD;
+}
+
+.priceValue {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+}
+
+.discountPrice {
+  margin-left: 0.5rem;
+  color: #f93c00;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+/*# sourceMappingURL=styles.css.map */

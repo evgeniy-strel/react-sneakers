@@ -1,0 +1,48 @@
+.product {
+    width: 23.25%;
+    min-height: 260px;
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+    .top {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        .like {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 9;
+            cursor: pointer;
+        }
+        .imgProduct {
+            display: block;
+            transform: translateY(-120px);
+            transition: .2s;
+            &:hover {
+                transform: scale(1.1) translateY(-120px);
+            }
+        }
+    }
+    .title {
+        font-size: 16px;
+        line-height: 17px;
+        color: #000000;
+        line-height: 1.15rem;
+    }
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .addProductImg {
+            cursor: pointer;
+        }
+    }
+}

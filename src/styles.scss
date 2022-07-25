@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #E7F6FF;
+    padding: 85px 0;
+}
+
+html, body {
+    margin: 0;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+}
+
+.container {
+    padding: 40px 50px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.priceText {
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #BDBDBD;
+}
+
+.priceValue {
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+}
+
+.discountPrice {
+    margin-left: 0.5rem;
+    color: #f93c00;
+}
+
+input, button, textarea {
+    font-family: inherit;
+}
+
+button, .button {
+    background: #9DD558;
+    border-radius: 18px;
+    height: 55px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.go-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.searchWrapper {
+    width: 250px;
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid #F3F3F3;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding-left: 20px; 
+    input {
+        font-size: 14px;
+        line-height: 17px;
+        color: #C4C4C4;
+        border: none;
+        &:focus {
+            border:none;
+            outline: none;
+            
+        }
+        &::-webkit-input-placeholder { color: #C4C4C4; }
+    }
+}

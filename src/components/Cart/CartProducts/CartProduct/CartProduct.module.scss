@@ -1,0 +1,26 @@
+.cartProduct {
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 20px;
+    padding: 30px 22px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    .imgWrapperCart {
+        width: 120px;
+        height: 80px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        overflow: hidden;
+        img {
+            transform: translateY(-85px);
+        }
+    }
+    .deleteProduct {
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+}

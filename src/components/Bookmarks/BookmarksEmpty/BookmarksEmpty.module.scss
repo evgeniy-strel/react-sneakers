@@ -1,0 +1,38 @@
+.emptyWrapper {
+    height: calc(100vh - 405px);
+    min-height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    .emptyContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    p {
+        margin: 0;
+    }
+    .emojy {
+        font-size: 52px;
+        margin: 0;
+    }
+    .title {
+        margin-top: 25px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+    .description {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #adadad;
+        margin-bottom: 70px;
+    }
+}

@@ -1,0 +1,123 @@
+{
+    "products": [
+        {
+            "id": 0,
+            "type": "мужские",
+            "firm": "nike",
+            "model": "AIR-MAX 270",
+            "imgUrl": "./img/sneakers/0.webp",
+            "price": 18199,
+            "discount": 0
+        },
+        {
+            "id": 1,
+            "type": "мужские",
+            "firm": "nike",
+            "model": "VENTURE RUNNER",
+            "imgUrl": "./img/sneakers/1.webp",
+            "price": 8199,
+            "discount": 0
+        },
+        {
+            "id": 2,
+            "type": "женские",
+            "firm": "nike",
+            "model": "WEARALLDAY",
+            "imgUrl": "./img/sneakers/2.webp",
+            "price": 8199,
+            "discount": 0
+        },
+        {
+            "id": 3,
+            "type": "мужские",
+            "firm": "nike",
+            "model": "DEFYALLDAY",
+            "imgUrl": "./img/sneakers/3.webp",
+            "price": 7899,
+            "discount": 0
+        },
+        {
+            "id": 4,
+            "type": "мужские",
+            "firm": "adidas",
+            "model": "LITE RACER 3.0",
+            "imgUrl": "./img/sneakers/4.webp",
+            "price": 6699,
+            "discount": 35
+
+        },
+        {
+            "id": 5,
+            "type": "женские",
+            "firm": "adidas",
+            "model": "ASTIR W",
+            "imgUrl": "./img/sneakers/5.webp",
+            "price": 10999,
+            "discount": 0
+        },
+        {
+            "id": 6,
+            "type": "женские",
+            "firm": "adidas",
+            "model": "ULTRABOOST 20",
+            "imgUrl": "./img/sneakers/6.webp",
+            "price": 25999,
+            "discount": 0
+        },
+        {
+            "id": 7,
+            "type": "женские",
+            "firm": "adidas",
+            "model": "CRAZYCHAOS 2.0",
+            "imgUrl": "./img/sneakers/7.webp",
+            "price": 8699,
+            "discount": 0
+        },
+        {
+            "id": 8,
+            "type": "женские",
+            "firm": "adidas",
+            "model": "ULTRABOOST 5.0",
+            "imgUrl": "./img/sneakers/8.webp",
+            "price": 20999,
+            "discount": 30
+        },
+        {
+            "id": 9,
+            "type": "женские",
+            "firm": "adidas",
+            "model": "SUPERSTAR",
+            "imgUrl": "./img/sneakers/9.webp",
+            "price": 10999,
+            "discount": 0
+        },
+        {
+            "id": 10,
+            "type": "женские",
+            "firm": "adidas",
+            "model": "OZELIA W",
+            "imgUrl": "./img/sneakers/10.webp",
+            "price": 11999,
+            "discount": 10
+        },
+        {
+            "id": 11,
+            "type": "женские",
+            "firm": "PUMA",
+            "model": "LQDCELL Method Wn's",
+            "imgUrl": "./img/sneakers/11.webp",
+            "price": 11490,
+            "discount": 0
+        },
+        {
+            "id": 12,
+            "type": "женские",
+            "firm": "PUMA",
+            "model": "ST Runner v3 L",
+            "imgUrl": "./img/sneakers/12.webp",
+            "price": 7990,
+            "discount": 0
+        }
+    ],
+    "promocodes": [{"code" : "SUMMER2022", "discount" : 25}, {"code" : "WOMANSHOES", "discount" : 20}, {"code" : "BIGSALE2022", "discount" : 30}]
+}

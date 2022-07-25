@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.scss";
+import React from "react";
+import Header from './components/Header/Header';
+import Cart from "./components/Cart/Cart";
+import styles from './components/Cart/Cart.module.scss';
+import {Routes,Route} from "react-router-dom";
+import MainPage from "./components/MainPage/MainPage";
+import Purchases from './components/Purchases/Purchases';
+import Bookmarks from './components/Bookmarks/Bookmarks';
 
-function App() {
+function App(props) {
+  const [isOpenCart, setIsOpencart] = React.useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="wrapper">
+      <Header openCart={() => setIsOpencart(true)} />
+      <Cart isOpenCart={isOpenCart} closeCart={() => setIsOpencart(false)} />
+      {isOpenCart && (
+        <div className={styles.backgroundInner} onClick={() => setIsOpencart(false)}></div>
+      )}
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/purchases" element={<Purchases />} />
+        <Route path="/bookmarks" element={<Bookmarks />} />
+      </Routes>
     </div>
+    </>
   );
 }
 

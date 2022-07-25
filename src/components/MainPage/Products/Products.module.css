@@ -1,0 +1,66 @@
+.productsWrapper .products {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2.33%;
+  row-gap: 20px;
+}
+
+.productsWrapper p {
+  margin: 0;
+  padding: 0;
+}
+
+.productsWrapper .productsTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.productsWrapper .title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: #000000;
+}
+
+.productsWrapper .searchWrapper {
+  width: 250px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid #F3F3F3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 13px;
+  padding-left: 20px;
+}
+
+.productsWrapper .searchWrapper input {
+  font-size: 14px;
+  line-height: 17px;
+  color: #C4C4C4;
+  border: none;
+}
+
+.productsWrapper .searchWrapper input:focus {
+  border: none;
+  outline: none;
+}
+
+.productsWrapper .searchWrapper input::-webkit-input-placeholder {
+  color: #C4C4C4;
+}
+/*# sourceMappingURL=Products.module.css.map */

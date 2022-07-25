@@ -1,0 +1,35 @@
+.shoppingCartProduct {
+  background: #FFFFFF;
+  border: 1px solid #F3F3F3;
+  border-radius: 20px;
+  padding: 30px 22px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+}
+
+.shoppingCartProduct .imgWrapperCart {
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.shoppingCartProduct .imgWrapperCart img {
+  -webkit-transform: translateY(-85px);
+          transform: translateY(-85px);
+}
+
+.shoppingCartProduct .deleteProduct {
+  cursor: pointer;
+}
+/*# sourceMappingURL=ShoppingCartProduct.module.css.map */
