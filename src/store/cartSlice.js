@@ -17,10 +17,17 @@ const cartSlice = createSlice({
             state.activePromocode = action.payload.code;
             state.discountPromocode = action.payload.discountPromocode;
             state.totalCount = getSumProducts(current(state).products, action.payload.discountPromocode);
+        },
+        clearCart(state) {
+            state.products = [];
+            state.totalCount = 0;
+            state.activePromocode = null;
+            state.discountPromocode = 0;
+            console.log('qqqqqqqqq');
         }
     },
 })
 
-export const {addProduct, removeProduct, applyPromocode} = cartSlice.actions;
+export const {addProduct, removeProduct, applyPromocode, clearCart} = cartSlice.actions;
 
 export default cartSlice.reducer;

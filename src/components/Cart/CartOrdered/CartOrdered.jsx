@@ -11,8 +11,10 @@ const CartOrdered = ({ closeCart }) => {
           Заказ оформлен!
         </p>
         <p className={styles.description}>Ваш заказ скоро будет передан курьерской доставке</p>
-
-        <Link to="/purchases" className={`${styles.checkOrder} ${styles.button} button go-button`}>
+        <Link
+          to="/purchases"
+          className={`${styles.checkOrder} ${styles.button} button go-button`}
+          onClick={closeCart}>
           Посмотреть заказ{' '}
           <img src="img/arrow-left.svg" alt="arrow-right" className={styles.arrowRight} />
         </Link>

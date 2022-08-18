@@ -4,7 +4,7 @@ import styles from './CartProducts.module.scss';
 import axios from 'axios';
 import { useDispatch } from 'react-redux/es/hooks/useDispatch';
 import { getAllSumOfDiscount } from '../../UsefulMethods/UsefulMethods';
-import { removeProduct } from '../../../store/cartSlice';
+import { clearCart, removeProduct } from '../../../store/cartSlice';
 import { applyPromocode } from '../../../store/cartSlice';
 import { makeOrder } from '../../../store/ordersSlice';
 
@@ -41,6 +41,7 @@ const CartProducts = ({ cartState, productsInCart }) => {
         discountPromocode: discountPromocode,
       }),
     );
+    dispatch(clearCart());
   };
 
   React.useEffect(() => {

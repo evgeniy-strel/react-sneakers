@@ -28,3 +28,10 @@ export const getAllSumOfDiscount = (products, discountPromocode) => {
     0,
   );
 };
+
+export const searchProductsByText = (products, text) => {
+  text = text.toLowerCase();
+  return products.filter((product) =>
+    `${product.type} кроссовки ${product.firm} ${product.model}`.toLowerCase().includes(text),
+  );
+};

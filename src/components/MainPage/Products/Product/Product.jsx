@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Product.module.scss';
 import { getFinalPrice } from '../../../UsefulMethods/UsefulMethods';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useDispatch } from 'react-redux/es/hooks/useDispatch';
 
 const Product = ({
   id,
@@ -15,10 +16,13 @@ const Product = ({
   isAddedToCart,
   addProductToCart,
   removeProductFromCart,
+  isAddedToBookmarks,
+  addProductToBookmarks,
+  removeProductFromBookmarks,
   discountPromocode,
 }) => {
-  const [isLikedProduct, setIsLikedProduct] = React.useState(false);
   const state = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const addProduct = () => {
     addProductToCart(id);
@@ -29,7 +33,11 @@ const Product = ({
   };
 
   const likeProduct = () => {
-    setIsLikedProduct(!isLikedProduct);
+    if (isAddedToBookmarks) {
+      removeProductFromBookmarks(id);
+    } else {
+      addProductToBookmarks(id);
+    }
   };
 
   return (
@@ -37,7 +45,7 @@ const Product = ({
       <div className={styles.top}>
         {showButtons && (
           <img
-            src={isLikedProduct ? 'img/liked.png' : 'img/like.png'}
+            src={isAddedToBookmarks ? 'img/liked.png' : 'img/like.png'}
             alt="like"
             className={styles.like}
             onClick={likeProduct}
