@@ -7,7 +7,7 @@ const cartSlice = createSlice({
     reducers: {
         addProduct(state, action) {
             state.products.push(action.payload);
-            state.totalCount += getFinalPrice(action.payload.price, action.payload.discount);
+            state.totalCount += getFinalPrice(action.payload.price, action.payload.discount, state.discountPromocode);
         },
         removeProduct(state, action) {
             state.products = state.products.filter(product => product.id !== action.payload.id);
