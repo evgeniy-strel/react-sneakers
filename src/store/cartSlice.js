@@ -23,7 +23,6 @@ const cartSlice = createSlice({
             state.totalCount = 0;
             state.activePromocode = null;
             state.discountPromocode = 0;
-            console.log('qqqqqqqqq');
         }
     },
 })
