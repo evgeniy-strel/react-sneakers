@@ -1,12 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
-import cartSlice from "./cartSlice";
-import ordersSlice from "./ordersSlice";
-import bookmarksSlice from "./bookmarksSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import products from './slices/productsSlice';
+import cart from './slices/cartSlice';
+import orders from './slices/ordersSlice';
+import bookmarks from './slices/bookmarksSlice';
 
 export default configureStore({
-    reducer: {
-        cart: cartSlice,
-        orders: ordersSlice,
-        bookmarks: bookmarksSlice,
-    }, 
+  reducer: {
+    products,
+    cart,
+    orders,
+    bookmarks,
+  },
 });

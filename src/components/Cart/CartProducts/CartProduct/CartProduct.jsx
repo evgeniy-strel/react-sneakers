@@ -1,21 +1,12 @@
 import React from 'react';
 import styles from './CartProduct.module.scss';
-import { getFinalPrice } from '../../../UsefulMethods/UsefulMethods';
+import { discountPromocodeSelector, getItemPrice } from '../../../../store/slices/cartSlice';
+import { useSelector } from 'react-redux';
 
-const CartProduct = ({
-  id,
-  firm,
-  model,
-  imgUrl,
-  type,
-  price,
-  discount,
-  removeProductFromCart,
-  discountPromocode,
-}) => {
+const CartProduct = ({ id, firm, model, imgUrl, type, price, discount, removeProductFromCart }) => {
+  const discountPromocode = useSelector(discountPromocodeSelector);
   const removeProduct = () => {
     removeProductFromCart(id);
-    console.log(discountPromocode);
   };
 
   return (
@@ -37,7 +28,7 @@ const CartProduct = ({
             </span>
             {discount || discountPromocode ? (
               <span className="discountPrice">
-                {getFinalPrice(price, discount, discountPromocode)}
+                {getItemPrice({ price, discount }, discountPromocode)}
               </span>
             ) : (
               ''

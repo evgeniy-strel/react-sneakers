@@ -1,7 +1,7 @@
 import React from 'react';
-import Products from './Products/Products';
+import Products from './../../components/Products/Products';
 
-const MainPage = () => {
+const Main = () => {
   return (
     <div className="container">
       <Products />
@@ -9,4 +9,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Main;

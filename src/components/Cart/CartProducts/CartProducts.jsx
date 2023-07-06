@@ -2,15 +2,20 @@ import React, { useRef } from 'react';
 import CartProduct from './CartProduct/CartProduct';
 import styles from './CartProducts.module.scss';
 import axios from 'axios';
-import { useDispatch } from 'react-redux/es/hooks/useDispatch';
-import { getAllSumOfDiscount } from '../../UsefulMethods/UsefulMethods';
-import { clearCart, removeProduct } from '../../../store/cartSlice';
-import { applyPromocode } from '../../../store/cartSlice';
-import { makeOrder } from '../../../store/ordersSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  clearCart,
+  getCartSelector,
+  removeProduct,
+  setPromocodes,
+} from '../../../store/slices/cartSlice';
+import { applyPromocode } from '../../../store//slices/cartSlice';
+import { makeOrder } from '../../../store/slices/ordersSlice';
 
-const CartProducts = ({ cartState, productsInCart }) => {
+const CartProducts = ({ productsInCart }) => {
   const [promocodes, setPromocodes] = React.useState();
-  const [discountPromocode, setDiscountPromocode] = React.useState();
+
+  const { totalCount, totalDiscount, discountPromocode } = useSelector(getCartSelector);
   const promocodeRef = useRef();
   const dispatch = useDispatch();
 
@@ -22,8 +27,8 @@ const CartProducts = ({ cartState, productsInCart }) => {
     const promocodeInput = promocodeRef.current.value.toUpperCase();
     let foundDiscountPromocode =
       promocodes.find((promocode) => promocode.code == promocodeInput)?.discount || 0;
+
     if (foundDiscountPromocode) {
-      setDiscountPromocode(foundDiscountPromocode);
       dispatch(applyPromocode({ code: promocodeInput, discountPromocode: foundDiscountPromocode }));
       alert(
         `Вы успешно применили промокод ${promocodeInput} на скидку в ${foundDiscountPromocode}%`,
@@ -37,8 +42,8 @@ const CartProducts = ({ cartState, productsInCart }) => {
     dispatch(
       makeOrder({
         products: productsInCart,
-        totalCount: cartState.totalCount,
-        discountPromocode: discountPromocode,
+        totalCount: totalCount,
+        discountPromocode,
       }),
     );
     dispatch(clearCart());
@@ -55,13 +60,7 @@ const CartProducts = ({ cartState, productsInCart }) => {
       <div className={styles.top}>
         {productsInCart.map((product) => (
           <CartProduct
-            id={product.id}
-            firm={product.firm}
-            model={product.model}
-            imgUrl={product.imgUrl}
-            type={product.type}
-            price={product.price}
-            discount={product.discount}
+            {...product}
             removeProductFromCart={removeProductFromCart}
             discountPromocode={discountPromocode}
           />
@@ -79,14 +78,12 @@ const CartProducts = ({ cartState, productsInCart }) => {
         <div>
           <p className={styles.discountText}>Скидка: </p>
           <div className={styles.borderBottomDotted}></div>
-          <p className={`${styles.discountSum} priceValue`}>
-            {getAllSumOfDiscount(cartState.products, discountPromocode)} руб
-          </p>
+          <p className={`${styles.discountSum} priceValue`}>{totalDiscount} руб</p>
         </div>
         <div>
           <p className={styles.totalText}>Итого: </p>
           <div className={styles.borderBottomDotted}></div>
-          <p className={`${styles.totalSum} priceValue`}>{cartState.totalCount} руб</p>
+          <p className={`${styles.totalSum} priceValue`}>{totalCount} руб</p>
         </div>
         <button className={styles.buy} onClick={handleClickOrder}>
           Оформить заказ

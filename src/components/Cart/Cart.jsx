@@ -4,43 +4,34 @@ import CartProducts from './CartProducts/CartProducts';
 import CartEmpty from './CartEmpty/CartEmpty';
 import CartOrdered from './CartOrdered/CartOrdered';
 import { useSelector } from 'react-redux';
+import { getCartSelector, productsInCartSelector } from '../../store/slices/cartSlice';
 
-const Cart = (props) => {
-  const handleClose = () => {
-    props.closeCart();
-    cartRef.current.classList.add(styles.closed);
-  };
-
+const Cart = ({ isOpenCart, closeCart }) => {
   const cartRef = React.useRef();
-  const [productsInCart, setProductsInCart] = React.useState([]);
-  const cartState = useSelector((state) => state.cart);
+  const productsInCart = useSelector(productsInCartSelector);
   const ordered = useSelector((state) => state.orders.totalCount) > 0;
 
   React.useEffect(() => {
-    setProductsInCart(cartState.products);
-  }, [cartState]);
-
-  React.useEffect(() => {
-    if (props.isOpenCart) {
+    if (isOpenCart) {
       cartRef.current.classList.remove(styles.closed);
     } else {
       cartRef.current.classList.add(styles.closed);
     }
-  }, [props.isOpenCart]);
+  }, [isOpenCart]);
 
   return (
     <div className={styles.shoppingWrapper}>
       <div className={`${styles.cart} ${styles.closed}`} ref={cartRef}>
         <div className={styles.top}>
           <p className={styles.title}>Корзина</p>
-          <img src="img/delete.svg" alt="close" width={32} height={32} onClick={handleClose} />
+          <img src="img/delete.svg" alt="close" width={32} height={32} onClick={closeCart} />
         </div>
         {ordered ? (
-          <CartOrdered closeCart={handleClose} />
+          <CartOrdered closeCart={closeCart} />
         ) : productsInCart.length ? (
-          <CartProducts cartState={cartState} productsInCart={productsInCart} />
+          <CartProducts productsInCart={productsInCart} />
         ) : (
-          <CartEmpty closeCart={handleClose} />
+          <CartEmpty closeCart={closeCart} />
         )}
       </div>
     </div>

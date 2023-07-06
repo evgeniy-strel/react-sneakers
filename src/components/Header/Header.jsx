@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import { useSelector } from 'react-redux';
+import { totalCountSelector } from '../../store/slices/cartSlice';
 
 const Header = (props) => {
-  const sumCart = useSelector((state) => state.cart.totalCount);
+  const totalCount = useSelector(totalCountSelector);
 
   return (
     <header className={styles.test}>
@@ -26,7 +27,7 @@ const Header = (props) => {
             alt="shopping cart"
             onClick={props.openCart}
           />
-          <span>{sumCart} руб.</span>
+          <span>{totalCount} руб.</span>
         </div>
 
         <Link to="/bookmarks">

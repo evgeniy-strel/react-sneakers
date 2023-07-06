@@ -1,7 +1,7 @@
 import React from 'react';
 import stylesPurchases from '../../Purchases/Purchases.module.scss';
-import stylesProduct from './../../MainPage/Products/Products.module.scss';
-import Products from '../../MainPage/Products/Products';
+import stylesProduct from '../../Products/Products.module.scss';
+import Products from '../../Products/Products';
 import { Link } from 'react-router-dom';
 
 const BookmarksFilled = ({ products }) => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import stylesProduct from './../../MainPage/Products/Products.module.scss';
+import stylesProduct from '../../Products/Products.module.scss';
 import styles from './../Purchases.module.scss';
 import axios from 'axios';
-import Product from './../../MainPage/Products/Product/Product';
+import Product from '../../Products/Product/Product';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -36,7 +36,7 @@ const PurchasesFilled = ({ products, totalCount, discountPromocode }) => {
               price={product.price}
               type={product.type}
               discountPromocode={discountPromocode}
-              showButtons={false}
+              isShowButtons={false}
             />
           ))}
         </div>
