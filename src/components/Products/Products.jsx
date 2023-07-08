@@ -2,28 +2,56 @@ import React from 'react';
 import styles from './Products.module.scss';
 import Product from './Product/Product';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts, productsSelector } from './../../store/slices/productsSlice';
+import {
+  fetchProducts,
+  productsSelector,
+} from './../../store/slices/productsSlice';
+import { brandsSelector, fetchBrands } from './../../store/slices/brandsSlice';
+import BrandFilter from './BrandFilter';
 
 const Products = () => {
   const dispatch = useDispatch();
 
-  const products = useSelector(productsSelector);
+  const allProducts = useSelector(productsSelector);
+  const [products, setProducts] = React.useState(allProducts);
+  const brands = useSelector(brandsSelector);
   const [searchText, setSearchText] = React.useState('');
-
-  const getSearchedProducts = () => {
-    return products.filter((product) => {
-      const titleProduct =
-        `${product.type} кроссовки ${product.firm} ${product.model}`.toLowerCase();
-      return titleProduct.includes(searchText.toLowerCase());
-    });
-  };
+  const [activeBrand, setActiveBrand] = React.useState('Все');
 
   const onChangeSearch = (e) => {
-    setSearchText(e.target.value);
+    const inputValue = e.target.value.toLowerCase();
+    setSearchText(inputValue);
+
+    if (!inputValue) filtersProductsByBrand(activeBrand);
+
+    setProducts((products) =>
+      products.filter((product) => {
+        const titleProduct = `${product.type} кроссовки ${product.firm} ${product.model}`;
+        return titleProduct.includes(inputValue);
+      })
+    );
+  };
+
+  const filtersProductsByBrand = (name) => {
+    if (name === 'Все') setProducts(allProducts);
+    else
+      setProducts(
+        allProducts.filter((product) => product.firm == name.toLowerCase())
+      );
+  };
+
+  const onClickBrand = (name) => {
+    setActiveBrand(name);
+    filtersProductsByBrand(name);
   };
 
   React.useEffect(() => {
+    setProducts(allProducts);
+  }, [allProducts]);
+
+  React.useEffect(() => {
     dispatch(fetchProducts());
+    dispatch(fetchBrands());
   }, []);
 
   return (
@@ -35,9 +63,23 @@ const Products = () => {
           <input type="text" placeholder="Поиск..." onChange={onChangeSearch} />
         </div>
       </div>
+      <div className={styles.brandsFilters}>
+        <BrandFilter
+          name={'Все'}
+          isActive={activeBrand === 'Все'}
+          onClick={onClickBrand}
+        />
+        {brands.map((brand) => (
+          <BrandFilter
+            name={brand}
+            isActive={activeBrand === brand}
+            onClick={onClickBrand}
+          />
+        ))}
+      </div>
 
       <div className={styles.products}>
-        {getSearchedProducts().map((product) => (
+        {products.map((product) => (
           <Product key={product.id} {...product} isShowButtons={true} />
         ))}
       </div>

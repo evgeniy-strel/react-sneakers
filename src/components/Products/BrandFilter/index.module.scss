@@ -1,0 +1,14 @@
+.brand {
+  padding: 0.5rem 1rem;
+  background: #f3f3f3;
+  border-radius: 0.5rem;
+  border: 1px solid #dbdbdb;
+  text-transform: capitalize;
+  &:hover {
+    cursor: pointer;
+  }
+  &.active {
+    background: #282828;
+    color: #fff;
+  }
+}

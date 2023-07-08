@@ -3,6 +3,7 @@ import products from './slices/productsSlice';
 import cart from './slices/cartSlice';
 import orders from './slices/ordersSlice';
 import bookmarks from './slices/bookmarksSlice';
+import brands from './slices/brandsSlice';
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     cart,
     orders,
     bookmarks,
+    brands,
   },
 });
